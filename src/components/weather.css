@@ -1,0 +1,18 @@
+@import "tailwindcss";
+.shadow{
+    box-shadow: -7px 7px 5px 5px rgba(0, 0, 0, 0.298),7px 0px 5px 5px rgba(0, 0, 0, 0.298);
+    background-color: rgba(239, 239, 239, 0.585);
+}
+.body {
+    background-color: #1E1E2F; 
+    color: #F1F5F9; 
+    height: 85.6vh;
+  }
+  .small_container{
+    text-align: center;
+    background-color: #1E1E2F; 
+    color: #F1F5F9; 
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
