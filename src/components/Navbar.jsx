@@ -15,7 +15,7 @@ const Navbar = ({triggerFunction}) => {
   return (
     <nav className="bg-slate-900 p-3 items-center rounded-b-lg">
       <div className="flex  justify-between max-w-[1000px]  mx-auto">
-        <div className="text-white font-bold text-xl">getWeath</div>
+        <div className="text-white font-bold text-xl">iWeath</div>
         <div className="text-white mr-3">
           <a href="#" className="mr-3">
             Home
