@@ -9,6 +9,8 @@ const weather = ({ message }) => {
     const saved = localStorage.getItem('weatherHistory');
     return saved ? JSON.parse(saved) : [];
   });
+  const [isMobile, setIsMobile] = useState(false);
+
 
   const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -48,6 +50,14 @@ const weather = ({ message }) => {
       setHistory(newHistory);
       localStorage.setItem('weatherHistory', JSON.stringify(newHistory));
     }
+
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const handleResize = () => setIsMobile(mediaQuery.matches);
+
+    handleResize(); // Initial check
+    mediaQuery.addEventListener('change', handleResize);
+
+    return () => mediaQuery.removeEventListener('change', handleResize);
   }, [message]);
 
   return (
@@ -68,16 +78,16 @@ const weather = ({ message }) => {
         <h2 className="text-3xl mt-3 font-semibold text-black">{weather.name}</h2> 
         <div className="info container  mx-auto max-w-[900px] flex justify-between mt-5">
           <h2 className="text-white small_container p-5 rounded-2xl">
-            Temperature:{weather.main.temp}°C{" "}
+            Temperature:{isMobile && <br />}{weather.main.temp}°C{" "}
           </h2>
           <h2 className="text-white small_container p-5 rounded-2xl">
-            Weather Conditions:{weather.weather[0].main}
+            Weather Conditions: {isMobile && <br />}{weather.weather[0].main}
           </h2>
           <h2 className="text-white small_container  p-5 rounded-2xl">
-            Humidity:{weather.main.humidity}%
+            Humidity:{isMobile && <br />}{weather.main.humidity}%
           </h2>
           <h2 className="text-white small_container p-5 rounded-2xl">
-            Wind Speed:{weather.wind.speed}
+            Wind Speed:{isMobile && <br />}{weather.wind.speed}
           </h2>
           <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="Image" />
           </div>

@@ -17,12 +17,12 @@ const Navbar = ({triggerFunction}) => {
       <div className="flex  justify-between max-w-[1000px]  mx-auto">
         <div className="text-white font-bold text-xl">iWeath</div>
         <div className="text-white mr-3">
-          <a href="#" className="mr-3">
+          <a href="#" className="mr-3 home">
             Home
           </a>
           <input
             type="text"
-            className="bg-slate-300 rounded-2xl p-1 px-3 min-w-50 text-blue-800"
+            className="bg-slate-300 rounded-2xl p-1 px-3 min-w-50 text-blue-800 input_bar"
             value={first}
             onChange={handleChange}
             placeholder="Enter city"
